@@ -1,0 +1,44 @@
+<div class="h-100 d-flex justify-content-center align-items-center mt-5">
+  <div class="px-3 py-3">
+    <h4>Log in</h4>
+    <form class="example-form" [formGroup]="loginForm" (submit)="login()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Username/Email</mat-label>
+        <input
+          formControlName="username"
+          matInput
+          placeholder="Username/Email"
+          [errorStateMatcher]="matcher"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            loginForm.get('username')?.hasError('email') &&
+            !loginForm.get('username')?.hasError('required')
+          "
+        >
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+          Username/Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput placeholder="Password" />
+      </mat-form-field>
+
+      <div class="login-btn-ctnr">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          Log in
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
