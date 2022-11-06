@@ -1,0 +1,20 @@
+:host {
+  .cntr {
+    height: 80px;
+    background-color: #00015e;
+    position: fixed;
+    top: 0;
+
+    .nav-ul {
+      display: flex;
+      align-items: center;
+
+      .nav-list {
+        padding: 0 1rem 0 0.5rem;
+        margin-right: auto;
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+  }
+}
